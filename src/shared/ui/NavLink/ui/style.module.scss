@@ -1,0 +1,48 @@
+@import '@/app/styles/media.scss';
+
+.nav_link {
+	position: relative;
+	display: inline-flex;
+	font-size: 20px;
+	height: 2em;
+	align-items: center;
+	color: var(--color-dark);
+	transition-duration: var(--transition-duration);
+	text-wrap: nowrap;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 90%;
+		width: 0%;
+		height: 1px;
+		background-color: currentColor;
+		transition-duration: inherit;
+	}
+
+	@include hover {
+		opacity: 0.9;
+
+		&::after {
+			width: 100%;
+		}
+	}
+
+	// Themes
+	&.underline-center {
+		&::after {
+			left: 50%;
+			translate: -50%;
+		}
+	}
+	&.underline-right {
+		&::after {
+			right: 0;
+		}
+	}
+	&.underline-left {
+		&::after {
+			left: 0;
+		}
+	}
+}
