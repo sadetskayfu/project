@@ -1,12 +1,15 @@
 import { ThemeContext } from './ThemeContext'
-import { useMemo, useState } from 'react'
+import { FC, ReactNode, useMemo, useState } from 'react'
 import { Theme } from './ThemeContext'
 import { LOCAL_STORAGE_THEME_KEY } from './ThemeContext'
 
-const defaultTheme =
-	(localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT
+interface ThemeProviderProps {
+	children: ReactNode
+}
 
-const ThemeProvider = ({ children }: any) => {
+const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 	const [theme, setTheme] = useState(defaultTheme)
 
 	const defaultProps = useMemo(() => {
@@ -16,11 +19,7 @@ const ThemeProvider = ({ children }: any) => {
 		}
 	}, [theme])
 
-	return (
-		<ThemeContext.Provider value={defaultProps}>
-			{children}
-		</ThemeContext.Provider>
-	)
+	return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>
 }
 
 export default ThemeProvider

@@ -1,0 +1,23 @@
+@import '@/app/styles/media';
+
+.button {
+    padding: 0;
+    border: 0;
+    height: var(--emulator-height);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: url('./icons/ru.png')  center/150% no-repeat;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-inset);
+    color: var(--color-dark-alt);
+    transition-duration: var(--transition-duration);
+    opacity: 0.8;
+    
+    @include hover {
+        opacity: 1;
+    }
+
+    &.eng {
+        background: url('./icons/en.png') center/150% no-repeat
+    }
+}

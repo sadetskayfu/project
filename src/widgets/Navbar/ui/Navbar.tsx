@@ -10,14 +10,10 @@ export const Navbar = () => {
 					<nav className="navbar__menu">
 						<ul className="navbar__menu-list">
 							<li className="navbar__menu-item">
-								<NavLink to={RoutePaths.MAIN}>
-									Home page
-								</NavLink>
+								<NavLink to={RoutePaths.MAIN}>Home page</NavLink>
 							</li>
 							<li className="navbar__menu-item">
-								<NavLink to={RoutePaths.ABOUT}>
-									About page
-								</NavLink>
+								<NavLink to={RoutePaths.ABOUT}>About page</NavLink>
 							</li>
 						</ul>
 					</nav>

@@ -1,2 +1,8 @@
 @import 'normalize', 'fonts', 'variables', 'mixins', 'media', 'utils', 'globals';
 @import './themes/dark', './themes/light';
+
+.app {
+    background-color: var(--theme-color-light-alt);
+    height: 100vh;
+    transition-duration: var(--transition-duration);
+}

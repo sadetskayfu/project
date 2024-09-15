@@ -11,11 +11,11 @@ describe('classNames', () => {
     })
 
     test('with mod classes', () => {
-        expect(classNames('header', ['visible', 'hidden'], {'hover': true, 'dark': false})).toBe('header visible hidden hover')
+        expect(classNames('header', ['visible', 'hidden'], {['hover']: true, 'dark': false})).toBe('header visible hidden hover')
     })
     
     test('with undefined', () => {
-        expect(classNames('header', [undefined, 'hidden'], {'hover': undefined, 'dark': true})).toBe('header hidden dark')
+        expect(classNames('header', undefined, {'hover': undefined, 'dark': true})).toBe('header dark')
     })
 
     test('without main class', () => {

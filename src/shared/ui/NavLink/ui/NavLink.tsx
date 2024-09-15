@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { classNames } from 'classNames'
 import { getModuleClassNames } from 'moduleClassNames'
 import * as styles from './style.module.scss'
@@ -21,7 +21,6 @@ export const NavLink: FC<NavLinkProps> = (props) => {
 		additionalClasses = [],
 		children,
 		to,
-		...otherProps
 	} = props
 
 	return (
@@ -31,7 +30,6 @@ export const NavLink: FC<NavLinkProps> = (props) => {
 				...additionalClasses,
 			])}
 			to={to}
-			{...otherProps}
 		>
 			{children}
 		</Link>
