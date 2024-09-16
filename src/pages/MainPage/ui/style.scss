@@ -1,5 +1,6 @@
 .main-page {
-	background-color: var(--color-light);
+	background-color: var(--theme-color-light-alt);
+	transform: background-color var(--transition-duration);
 
 	&__title {
 		color: var(--color-dark);

@@ -1,0 +1,78 @@
+.toggle_switch {
+    --toggleSwitchHeight: 25px;
+    --toggleSwitchWidth: 50px;
+    --switchHeight: calc(var(--toggleSwitchHeight) * 0.6);
+    --switchInlinePadding: calc((var(--toggleSwitchHeight) - var(--switchHeight)) / 2);
+
+	display: inline-flex;
+    border-radius: var(--border-radius-big);
+
+    // THEMES
+    &.toggle-switch-small {
+        --toggleSwitchHeight: 20px;
+        --toggleSwitchWidth: 40px;
+    }
+
+    &.toggle-switch-middle {
+        --toggleSwitchHeight: 25px;
+        --toggleSwitchWidth: 50px;
+    }
+
+    &.toggle-switch-big {
+        --toggleSwitchHeight: 35px;
+        --toggleSwitchWidth: 70px;
+    }
+
+    &.switch-small {
+        --switchHeight: calc(var(--toggleSwitchHeight) * 0.4);
+    }
+
+    &.switch-middle {
+        --switchHeight: calc(var(--toggleSwitchHeight) * 0.6);
+    }
+
+    &.switch-big {
+        --switchHeight: calc(var(--toggleSwitchHeight) * 0.8);
+    }
+}
+
+.switch {
+	position: relative;
+	cursor: pointer;
+	border-radius: inherit;
+	width: var(--toggleSwitchWidth);
+	height: var(--toggleSwitchHeight);
+    color: var(--color-dark-alt);
+	background-color: var(--color-light-alt);
+	box-shadow: var(--box-shadow-inset);
+	transition-duration: var(--transition-duration);
+
+	&:hover {
+		background-color: var(--color-light);
+	}
+
+	&::before {
+		position: absolute;
+		content: '';
+		left: var(--switchInlinePadding);
+		top: 50%;
+		translate: 0 -50%;
+		height: var(--switchHeight);
+		aspect-ratio: 1;
+		box-shadow: var(--box-shadow-inset);
+		background-color: var(--color-light-alt);
+		border-radius: 50%;
+		transition: background-color var(--transition-duration-middle), transform var(--transition-duration), box-shadow var(--transition-duration);
+	}
+}
+
+.toggle_switch input[type='checkbox']:checked + .switch::before {
+    transform: translateX(calc(var(--toggleSwitchWidth) - var(--switchInlinePadding) * 5));
+    color: var(--color-blue);
+	box-shadow: var(--box-shadow);
+    background-color: currentColor;
+}
+
+.toggle_switch input[type='checkbox']:checked + .switch {
+	color: var(--color-blue);
+}

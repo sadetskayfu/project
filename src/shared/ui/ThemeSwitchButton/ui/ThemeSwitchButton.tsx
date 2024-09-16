@@ -26,7 +26,7 @@ export const ThemeSwitchButton: FC<ThemeSwitchButtonProps> = ({ additionalClasse
 	return (
 		<button onClick={switchTheme} className={classNames(style.button, [...additionalClasses], { [style.active]: stateButton })}>
 			<span className="visually-hidden">Switching the color theme</span>
-			<div className={style.emulator}>{currentTheme ? <Moon /> : <Sun />}</div>
+			<div className={style.switch}>{currentTheme ? <Moon /> : <Sun />}</div>
 		</button>
 	)
 }

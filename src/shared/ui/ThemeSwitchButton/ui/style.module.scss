@@ -11,9 +11,10 @@
 }
 
 .button {
-    --width-button: 50px;
+    --width-button: 65px;
+	--height-button: 30px;
 	width: var(--width-button);
-	height: 30px;
+	height: var(--height-button);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,20 +31,20 @@
     }
 
 	&.active {
-		.emulator {
-			transform: translateX(calc(var(--width-button) / 3));
+		.switch {
+			transform: translateX(calc(var(--width-button) / 2 - var(--height-button) / 2));
 			color: var(--color-blue);
 		}
 	}
 }
 
-.emulator {
+.switch {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: var(--emulator-height);
+	height: var(--switch-height);
 	aspect-ratio: 1;
-	transform: translateX(calc(var(--width-button) / 3 * -1));
+	transform: translateX(calc((var(--width-button) / 2 -  var(--height-button) / 2) * -1));
 	color: var(--color-light);
 	background-color: var(--color-light);
 	border-radius: 50%;
