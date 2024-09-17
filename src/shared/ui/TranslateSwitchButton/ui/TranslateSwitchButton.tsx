@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { classNames } from 'classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import * as styles from './style.module.scss'
 
@@ -13,15 +13,15 @@ export const TranslateSwitchButton: FC<TranslateSwitchButtonProps> = ({ addition
 
 	const currentLanguage = i18n.language === 'en'
 
-	const [buttonState, setButtonState] = useState<boolean>(currentLanguage)
+	const [isToggled, setIsToggled] = useState<boolean>(currentLanguage)
 
-	const toggleLanguage = () => {
-		setButtonState(!buttonState)
+	const onToggle = () => {
+		setIsToggled(!isToggled)
 		i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
 	}
 
 	return (
-		<button onClick={toggleLanguage} className={classNames(styles.button, [...additionalClasses], { [styles.eng]: buttonState })}>
+		<button onClick={onToggle} className={classNames(styles['button'], [...additionalClasses], { [styles['eng']]: isToggled })} type='button'>
 			<span className="visually-hidden">Switching the language</span>
 		</button>
 	)

@@ -1,13 +1,58 @@
-.toggle_switch {
+@import '@/app/styles/media';
+
+.toggle-switch {
     --toggleSwitchHeight: 25px;
     --toggleSwitchWidth: 50px;
-    --switchHeight: calc(var(--toggleSwitchHeight) * 0.6);
-    --switchInlinePadding: calc((var(--toggleSwitchHeight) - var(--switchHeight)) / 2);
+    --emulatorHeight: calc(var(--toggleSwitchHeight) * 0.6);
+    --emulatorInlinePadding: calc((var(--toggleSwitchHeight) - var(--emulatorHeight)) / 2);
 
 	display: inline-flex;
     border-radius: var(--border-radius-big);
 
-    // THEMES
+    & input[type='checkbox']:checked + .switch::before {
+        transform: translateX(calc(var(--toggleSwitchWidth) / 2 - var(--toggleSwitchHeight) / 2));
+        color: var(--color-blue);
+        box-shadow: var(--box-shadow);
+        background-color: currentColor;
+    }
+    
+    & input[type='checkbox']:checked + .switch {
+        color: var(--color-blue);
+    }
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	cursor: pointer;
+	border-radius: inherit;
+	width: var(--toggleSwitchWidth);
+	height: var(--toggleSwitchHeight);
+    color: var(--color-dark-alt);
+	background-color: var(--color-light-alt);
+	box-shadow: var(--box-shadow-inset);
+	transition-duration: var(--transition-duration);
+
+	@include hover {
+		background-color: var(--color-light);
+	}
+
+	&::before {
+		content: '';
+        transform: translateX(calc((var(--toggleSwitchWidth) / 2 - var(--toggleSwitchHeight) / 2) * -1));
+		height: var(--emulatorHeight);
+		aspect-ratio: 1;
+		box-shadow: var(--box-shadow-inset);
+		background-color: var(--color-light-alt);
+		border-radius: 50%;
+		transition: all var(--transition-duration), background-color var(--transition-duration-middle);
+	}
+}
+
+// THEMES
+.toggle-switch {
+    
     &.toggle-switch-small {
         --toggleSwitchHeight: 20px;
         --toggleSwitchWidth: 40px;
@@ -23,56 +68,33 @@
         --toggleSwitchWidth: 70px;
     }
 
-    &.switch-small {
-        --switchHeight: calc(var(--toggleSwitchHeight) * 0.4);
+    &.emulator-small {
+        --emulatorHeight: calc(var(--toggleSwitchHeight) * 0.4);
     }
 
-    &.switch-middle {
-        --switchHeight: calc(var(--toggleSwitchHeight) * 0.6);
+    &.emulator-middle {
+        --emulatorHeight: calc(var(--toggleSwitchHeight) * 0.6);
     }
 
-    &.switch-big {
-        --switchHeight: calc(var(--toggleSwitchHeight) * 0.8);
+    &.emulator-big {
+        --emulatorHeight: calc(var(--toggleSwitchHeight) * 0.8);
     }
-}
 
-.switch {
-	position: relative;
-	cursor: pointer;
-	border-radius: inherit;
-	width: var(--toggleSwitchWidth);
-	height: var(--toggleSwitchHeight);
-    color: var(--color-dark-alt);
-	background-color: var(--color-light-alt);
-	box-shadow: var(--box-shadow-inset);
-	transition-duration: var(--transition-duration);
+    &.emulator-active-scale-small {
+        & input[type='checkbox']:checked + .switch::before {
+            transform: translateX(calc(var(--toggleSwitchWidth) / 2 - var(--toggleSwitchHeight) / 2)) scale((1.2));
+        }
+    }
 
-	&:hover {
-		background-color: var(--color-light);
-	}
+    &.emulator-active-scale-middle {
+        & input[type='checkbox']:checked + .switch::before {
+            transform: translateX(calc(var(--toggleSwitchWidth) / 2 - var(--toggleSwitchHeight) / 2)) scale((1.4));
+        }
+    }
 
-	&::before {
-		position: absolute;
-		content: '';
-		left: var(--switchInlinePadding);
-		top: 50%;
-		translate: 0 -50%;
-		height: var(--switchHeight);
-		aspect-ratio: 1;
-		box-shadow: var(--box-shadow-inset);
-		background-color: var(--color-light-alt);
-		border-radius: 50%;
-		transition: background-color var(--transition-duration-middle), transform var(--transition-duration), box-shadow var(--transition-duration);
-	}
-}
-
-.toggle_switch input[type='checkbox']:checked + .switch::before {
-    transform: translateX(calc(var(--toggleSwitchWidth) - var(--switchInlinePadding) * 5));
-    color: var(--color-blue);
-	box-shadow: var(--box-shadow);
-    background-color: currentColor;
-}
-
-.toggle_switch input[type='checkbox']:checked + .switch {
-	color: var(--color-blue);
+    &.emulator-active-scale-big {
+        & input[type='checkbox']:checked + .switch::before {
+            transform: translateX(calc(var(--toggleSwitchWidth) / 2 - var(--toggleSwitchHeight) / 2)) scale((1.6));
+        }
+    }
 }

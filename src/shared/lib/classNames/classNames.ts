@@ -6,7 +6,7 @@ export function classNames(
 	mods: Mods = {}
 ) {
 	return [
-		...[mainClass.length > 0 && mainClass.trim()].filter(Boolean),
+		...[mainClass?.length > 0 && mainClass.trim()].filter(Boolean),
 		...additionalClasses.filter(Boolean),
 		...Object.entries(mods)
 			.filter(([className, value]) => Boolean(value))

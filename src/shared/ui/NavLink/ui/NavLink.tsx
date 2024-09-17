@@ -1,7 +1,7 @@
 import { Link, LinkProps } from 'react-router-dom'
-import { FC, ReactNode } from 'react'
-import { classNames } from 'classNames'
-import { getModuleClassNames } from 'moduleClassNames'
+import { FC } from 'react'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
 import * as styles from './style.module.scss'
 
 export enum NavLinkTheme {
@@ -15,22 +15,13 @@ interface NavLinkProps extends LinkProps {
 	additionalClasses?: string[]
 }
 
+console.log(styles)
+
 export const NavLink: FC<NavLinkProps> = (props) => {
-	const {
-		themes = [NavLinkTheme.UNDERLINE_LEFT],
-		additionalClasses = [],
-		children,
-		to,
-	} = props
+	const { themes = [NavLinkTheme.UNDERLINE_LEFT], additionalClasses = [], children, to } = props
 
 	return (
-		<Link
-			className={classNames(styles.nav_link, [
-				...getModuleClassNames(themes, styles),
-				...additionalClasses,
-			])}
-			to={to}
-		>
+		<Link className={classNames(styles['nav-link'], [...getModuleClassNames(themes, styles), ...additionalClasses])} to={to}>
 			{children}
 		</Link>
 	)

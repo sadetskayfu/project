@@ -12,16 +12,13 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"],
-			"classNames": ["./src/shared/lib/classNames/classNames.ts"],
-			"moduleClassNames": [
-				"./src/shared/lib//getModuleClassNames/getModuleClassNames.ts"
-			]
-		}
+		},
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
 	},
 
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"
 		}
-	}
+	},
 }

@@ -22,4 +22,7 @@ describe('classNames', () => {
         expect(classNames('', ['hidden'])).toBe('hidden')
     })
     
+    test('main class = undefined', () => {
+        expect(classNames(undefined, ['hidden'])).toBe('hidden')
+    })
 })

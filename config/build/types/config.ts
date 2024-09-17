@@ -5,8 +5,6 @@ export interface BuildPaths {
 	output: string
 	entry: string
 	src: string
-	classNames: string // custom classnames helper
-	moduleClassNames: string // custom module css helper
 }
 
 export interface BuildEnv {

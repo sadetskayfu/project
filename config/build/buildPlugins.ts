@@ -4,6 +4,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BuildOptions } from './types/config'
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 export function buildPlugins(
 	options: BuildOptions
 ): webpack.WebpackPluginInstance[] {
@@ -14,13 +16,20 @@ export function buildPlugins(
 			template: paths.html,
 		}),
 		new webpack.ProgressPlugin(),
+
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].[contenthash:8].css',
 			chunkFilename: 'css/[id].[contenthash:8].css',
 		}), // извлекает CSS в отдельные файлы
+
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
+		
 		isDev ? new ReactRefreshWebpackPlugin() : undefined,
+
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'disabled'
+		}),
 	]
 }

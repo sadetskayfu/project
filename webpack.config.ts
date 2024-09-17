@@ -9,23 +9,6 @@ export default function (env: BuildEnv): Configuration {
 		output: path.resolve(__dirname, 'build'),
 		html: path.resolve(__dirname, 'public', 'index.html'),
 		src: path.resolve(__dirname, 'src'),
-
-		classNames: path.resolve(
-			__dirname,
-			'src',
-			'shared',
-			'lib',
-			'classNames',
-			'classNames.ts'
-		), // custom classnames helper
-		moduleClassNames: path.resolve(
-			__dirname,
-			'src',
-			'shared',
-			'lib',
-			'getModuleClassNames',
-			'getModuleClassNames.ts'
-		), // custom module css helper
 	}
 
 	const mode = env.mode || 'development'

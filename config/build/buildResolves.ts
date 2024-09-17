@@ -8,8 +8,6 @@ export function buildResolves(paths: BuildPaths): ResolveOptions {
 		mainFiles: ['index.ts'],
 		alias: {
 			'@': paths.src, // add absolute imports
-			classNames: paths.classNames, // custom classnames helper
-			moduleClassNames: paths.moduleClassNames, // custom module css helper
 		},
 	}
 }

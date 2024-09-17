@@ -31,14 +31,14 @@
     }
 
 	&.active {
-		.switch {
+		.emulator {
 			transform: translateX(calc(var(--width-button) / 2 - var(--height-button) / 2));
 			color: var(--color-blue);
 		}
 	}
 }
 
-.switch {
+.emulator {
 	display: flex;
 	justify-content: center;
 	align-items: center;
