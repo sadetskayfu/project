@@ -1,4 +1,5 @@
 import type { Config } from 'jest'
+import path from 'path'
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 
 const config: Config = {
@@ -10,14 +11,17 @@ const config: Config = {
 	moduleDirectories: ['node_modules'],
 	modulePaths: ['<rootDir>src/'], // for absolute import
 	moduleNameMapper: {
-    // for absolute imports with alias
-		'^@/(.*)$': '<rootDir>src/$1', 
+		// for absolute imports with alias
+		'^@/(.*)$': '<rootDir>src/$1',
 
-    // Name export css module
-		'\\.s?css$': '<rootDir>config/jest/identity-obj-proxy.ts', 
+		// Name export css module
+		'\\.s?css$': path.resolve(__dirname, 'identity-obj-proxy.ts'),
+		
+		// svg mock
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
 
-    // Default export css module / Не показывает название классов при именовоном экспорте css модулей.
-		// '\\.s?css$': 'identity-obj-proxy', 
+		// Default export css module / Не показывает название классов при именовоном экспорте css модулей.
+		// '\\.s?css$': 'identity-obj-proxy',
 	},
 	setupFilesAfterEnv: ['<rootDir>config/jest/setupTest.ts'],
 }
