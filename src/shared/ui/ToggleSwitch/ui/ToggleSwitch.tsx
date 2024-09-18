@@ -4,28 +4,38 @@ import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleC
 import * as styles from './style.module.scss'
 
 export enum ToggleSwitchTheme {
-	TOGGLE_SWITCH_SMALL = 'toggle-switch-small',
-	TOGGLE_SWITCH_MIDDLE = 'toggle-switch-middle', // default
-	TOGGLE_SWITCH_BIG = 'toggle-switch-big',
-	EMULATOR_SMALL = 'emulator-small',
-	EMULATOR_MIDDLE = 'emulator-middle', // default
-	EMULATOR_BIG = 'emulator-big',
-	EMULATOR_ACTIVE_SCALE_SMALL = 'emulator-active-scale-small',
-	EMULATOR_ACTIVE_SCALE_MIDDLE = 'emulator-active-scale-middle',
-	EMULATOR_ACTIVE_SCALE_BIG = 'emulator-active-scale-big'
+	PRIMARY = 'primary', // default
+	SECONDARY = 'secondary',
+}
+
+export enum ToggleSwitchSize {
+	SMALL = 'toggle-switch-small', // default
+	LARGE = 'toggle-switch-large',
+}
+
+export enum ToggleSwitchActiveEmulatorScale {
+	SMALL = 'active-emulator-scale-small',
+	LARGE = 'active-emulator-scale-large'
 }
 
 interface ToggleSwitchProps {
 	additionalClasses?: string[]
-	themes?: ToggleSwitchTheme[]
-	label: string
+	theme?: ToggleSwitchTheme
+	size?: ToggleSwitchSize
+	emulatorScale?: ToggleSwitchActiveEmulatorScale
+	label?: string
 	name?: string
 }
 
-console.log(styles)
-
 export const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
-	const { name = '', label, themes = [], additionalClasses = [] } = props
+	const {
+		name = '',
+		label,
+		theme = ToggleSwitchTheme.PRIMARY,
+		size = ToggleSwitchSize.SMALL,
+		emulatorScale,
+		additionalClasses = [],
+	} = props
 
 	const [isToggled, setIsToggled] = useState(false)
 
@@ -34,7 +44,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
 	}
 
 	return (
-		<label className={classNames(styles['toggle-switch'], [...getModuleClassNames(themes, styles), ...additionalClasses])}>
+		<label className={classNames(styles['toggle-switch'], [...getModuleClassNames([theme, size, emulatorScale], styles) ,...additionalClasses])}>
 			<input className="visually-hidden" checked={isToggled} onChange={onToggle} type="checkbox" value={label} name={name} />
 			<span className={styles['switch']}></span>
 			<span className="visually-hidden">{label}</span>

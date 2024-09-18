@@ -35,14 +35,19 @@
 			translate: -50%;
 		}
 	}
-	&.underline-right {
+	&.underline-to-right {
+		&::after {
+			left: 0;
+		}
+	}
+	&.underline-to-left {
 		&::after {
 			right: 0;
 		}
 	}
-	&.underline-left {
+	&.underline-none {
 		&::after {
-			left: 0;
+			display: none;
 		}
 	}
 }

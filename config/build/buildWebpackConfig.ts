@@ -21,7 +21,7 @@ export function buildWebpackConfig(
 			clean: true,
 		},
 		module: {
-			rules: buildLoaders(options),
+			rules: buildLoaders(isDev),
 		},
 		plugins: buildPlugins(options),
 		resolve: buildResolves(paths),

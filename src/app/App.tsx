@@ -11,12 +11,14 @@ export default function App() {
 
 	return (
 		<div className={classNames('app', [theme])}>
-			<Suspense fallback={<h1>Loading...</h1>}>
+			<Suspense fallback="<h1>Loading...</h1>">
 				<Header />
-				<Navbar />
-				<Suspense fallback={<h1>Loading...</h1>}>
-					<AppRouter />
-				</Suspense>
+				<main className="content">
+					<div className="content__inner container">
+						<Navbar />
+						<AppRouter />
+					</div>
+				</main>
 			</Suspense>
 		</div>
 	)

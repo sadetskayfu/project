@@ -1,32 +1,11 @@
 import { RuleSetRule } from 'webpack'
-import { BuildOptions } from './types/config'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildSvgLoader } from './loaders/buildSvgLoader'
 
-export function buildLoaders(options: BuildOptions): RuleSetRule[] {
-	const { isDev } = options
+export function buildLoaders(isDev: boolean): RuleSetRule[] {
 
-	const cssLoader = {
-		test: /\.s[ac]ss$/i,
-		use: [
-			// Creates `style` nodes from JS strings
-			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-
-			// Translates CSS into CommonJS
-			{
-				loader: 'css-loader',
-				options: {
-					modules: {
-						auto: (resourcePath: string) => Boolean(resourcePath.includes('.module.')),
-						localIdentName: isDev ? '[local]--[hash:base64:6]' : '[hash:base64:12]',
-						//namedExport: false,
-					},
-				},
-			},
-
-			// Compiles Sass to CSS
-			'sass-loader',
-		],
-	}
+	const cssLoader = buildCssLoader(isDev)
+	const svgLoader = buildSvgLoader()
 
 	const typeScriptLoader = {
 		test: /\.tsx?$/,
@@ -35,17 +14,11 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 	}
 
 	const assetLoader = {
-		test: /\.(png|jpg|jpeg|gif)$/i,
+		test: /\.(ico|jpg|jpeg|png|apng|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
 		type: 'asset/resource',
 		generator: {
-			filename: 'images/[name].[contenthash][ext]',
+			filename: 'static/[name].[contenthash][ext]',
 		},
-	}
-
-	const svgLoader = {
-		test: /\.svg$/i,
-		issuer: /\.[jt]sx?$/,
-		use: [{ loader: '@svgr/webpack', options: { icon: true } }],
 	}
 
 	const babelLoader = {
@@ -60,5 +33,5 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 		},
 	}
 
-	return [assetLoader, svgLoader, cssLoader, babelLoader, typeScriptLoader]
+	return [assetLoader, svgLoader, cssLoader, typeScriptLoader]
 }

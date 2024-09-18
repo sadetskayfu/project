@@ -5,19 +5,17 @@ import './style.scss'
 export const Navbar = () => {
 	return (
 		<div className="navbar">
-			<div className="container">
-				<div className="navbar__inner">
-					<nav className="navbar__menu">
-						<ul className="navbar__menu-list">
-							<li className="navbar__menu-item">
-								<NavLink to={RoutePaths.MAIN}>Home page</NavLink>
-							</li>
-							<li className="navbar__menu-item">
-								<NavLink to={RoutePaths.ABOUT}>About page</NavLink>
-							</li>
-						</ul>
-					</nav>
-				</div>
+			<div className="navbar__inner">
+				<nav className="navbar__menu">
+					<ul className="navbar__menu-list">
+						<li className="navbar__menu-item">
+							<NavLink to={RoutePaths.MAIN}>Home page</NavLink>
+						</li>
+						<li className="navbar__menu-item">
+							<NavLink to={RoutePaths.ABOUT}>About page</NavLink>
+						</li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	)

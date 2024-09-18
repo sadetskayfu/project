@@ -6,9 +6,7 @@ import { BuildOptions } from './types/config'
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-export function buildPlugins(
-	options: BuildOptions
-): webpack.WebpackPluginInstance[] {
+export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
 	const { paths, isDev } = options
 
 	return [
@@ -25,11 +23,11 @@ export function buildPlugins(
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
-		
+
 		isDev ? new ReactRefreshWebpackPlugin() : undefined,
 
 		new BundleAnalyzerPlugin({
-			analyzerMode: 'disabled'
+			analyzerMode: 'disabled',
 		}),
 	]
 }
