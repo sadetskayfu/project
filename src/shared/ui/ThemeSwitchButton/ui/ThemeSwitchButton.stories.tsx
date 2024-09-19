@@ -6,9 +6,6 @@ import { ThemeSwitchButton } from './ThemeSwitchButton'
 const meta = {
 	title: 'shared/ThemeSwitchButton',
 	component: ThemeSwitchButton,
-	parameters: {
-		layout: 'centered',
-	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof ThemeSwitchButton>
 

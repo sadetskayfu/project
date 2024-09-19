@@ -14,6 +14,9 @@ const config: StorybookConfig = {
 		name: '@storybook/react-webpack5',
 		options: {},
 	},
+	docs: {
+		autodocs: 'tag'
+	},
 	swc: () => ({
 		jsc: {
 		  transform: {

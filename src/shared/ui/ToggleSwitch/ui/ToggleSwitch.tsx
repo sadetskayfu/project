@@ -3,10 +3,12 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
 import * as styles from './style.module.scss'
 
-export enum ToggleSwitchTheme {
-	PRIMARY = 'primary', // default
-	SECONDARY = 'secondary',
-}
+// export enum ToggleSwitchTheme {
+// 	PRIMARY = 'primary', // default
+// 	SECONDARY = 'secondary',
+// }
+
+type ToggleSwitchTheme = 'primary' | 'secondary'
 
 export enum ToggleSwitchSize {
 	SMALL = 'toggle-switch-small', // default
@@ -31,7 +33,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
 	const {
 		name = '',
 		label,
-		theme = ToggleSwitchTheme.PRIMARY,
+		theme = 'primary', //ToggleSwitchTheme.PRIMARY,
 		size = ToggleSwitchSize.SMALL,
 		emulatorScale,
 		additionalClasses = [],

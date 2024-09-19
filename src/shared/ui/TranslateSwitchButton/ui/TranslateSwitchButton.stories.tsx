@@ -6,9 +6,6 @@ import { TranslateSwitchButton } from './TranslateSwitchButton'
 const meta = {
 	title: 'shared/TranslateSwitchButton',
 	component: TranslateSwitchButton,
-	parameters: {
-		layout: 'centered',
-	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof TranslateSwitchButton>
 

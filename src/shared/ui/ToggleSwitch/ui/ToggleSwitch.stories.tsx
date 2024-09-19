@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ToggleSwitchSize, ToggleSwitchTheme, ToggleSwitchActiveEmulatorScale } from './ToggleSwitch'
+import { ToggleSwitchSize, ToggleSwitchActiveEmulatorScale } from './ToggleSwitch'
 import { fn } from '@storybook/test'
 
 import { ToggleSwitch } from './ToggleSwitch'
+import { ThemeDecorator } from '@/shared/storybook/decorators'
+import { Theme } from '@/app/providers/theme'
 
 const meta = {
 	title: 'shared/ToggleSwitch',
 	component: ToggleSwitch,
-	parameters: {
-		layout: 'centered',
-	},
 	tags: ['autodocs'],
 } satisfies Meta<typeof ToggleSwitch>
 
@@ -17,43 +16,68 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const PrimaryLight: Story = {
 	args: {
-		theme: ToggleSwitchTheme.PRIMARY,
+		theme: 'primary',
 		size: ToggleSwitchSize.SMALL,
 		additionalClasses: [],
 		name: 'ToggleSwitch',
 		label: 'ToggleSwitch',
 	},
+	decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
-export const Secondary: Story = {
+export const PrimaryDark: Story = {
 	args: {
-		theme: ToggleSwitchTheme.SECONDARY,
+		theme: 'primary',
 		size: ToggleSwitchSize.SMALL,
 		additionalClasses: [],
 		name: 'ToggleSwitch',
 		label: 'ToggleSwitch',
 	},
+	decorators: [ThemeDecorator(Theme.DARK)]
 }
 
-export const Large: Story = {
-	args: {
-		theme: ToggleSwitchTheme.PRIMARY,
-		size: ToggleSwitchSize.LARGE,
-		additionalClasses: [],
-		name: 'ToggleSwitch',
-		label: 'ToggleSwitch',
-	},
-}
 
-export const ActiveEmulatorScale: Story = {
+export const SecondaryLight: Story = {
 	args: {
-		theme: ToggleSwitchTheme.PRIMARY,
+		theme: 'secondary',
 		size: ToggleSwitchSize.SMALL,
-		emulatorScale: ToggleSwitchActiveEmulatorScale.LARGE,
 		additionalClasses: [],
 		name: 'ToggleSwitch',
 		label: 'ToggleSwitch',
 	},
+	decorators: [ThemeDecorator(Theme.LIGHT)]
 }
+
+export const SecondaryDark: Story = {
+	args: {
+		theme: 'secondary',
+		size: ToggleSwitchSize.SMALL,
+		additionalClasses: [],
+		name: 'ToggleSwitch',
+		label: 'ToggleSwitch',
+	},
+	decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+// export const Large: Story = {
+// 	args: {
+// 		theme: ToggleSwitchTheme.PRIMARY,
+// 		size: ToggleSwitchSize.LARGE,
+// 		additionalClasses: [],
+// 		name: 'ToggleSwitch',
+// 		label: 'ToggleSwitch',
+// 	},
+// }
+
+// export const ActiveEmulatorScale: Story = {
+// 	args: {
+// 		theme: ToggleSwitchTheme.PRIMARY,
+// 		size: ToggleSwitchSize.SMALL,
+// 		emulatorScale: ToggleSwitchActiveEmulatorScale.LARGE,
+// 		additionalClasses: [],
+// 		name: 'ToggleSwitch',
+// 		label: 'ToggleSwitch',
+// 	},
+// }

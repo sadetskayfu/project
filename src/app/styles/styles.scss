@@ -2,14 +2,12 @@
 @import './themes/dark', './themes/light';
 
 .app {
-
+    background-color: var(--theme-color-light-alt);
+    transition: background-color var(--transition-duration);
 }
 
 .content {
-    background-color: var(--theme-color-light-alt);
-    transition: background-color var(--transition-duration);
     padding-top: var(--header-height);
-
     &__inner {
         display: flex;
         column-gap: 20px;
