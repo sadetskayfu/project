@@ -1,1 +1,1 @@
-export { ToggleSwitch, ToggleSwitchSize, ToggleSwitchTheme, ToggleSwitchActiveEmulatorScale } from './ui/ToggleSwitch'
+export { ToggleSwitch, ToggleSwitchSize, ToggleSwitchActiveEmulatorScale } from './ui/ToggleSwitch'
