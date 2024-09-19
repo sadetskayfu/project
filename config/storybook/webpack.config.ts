@@ -12,13 +12,16 @@ export default ({ config }: { config: Configuration }) => {
 		src: path.resolve(__dirname, '..', '..', 'src'),
 	}
 
+	// add absolute imports with alias
 	config.resolve.alias = {
 		...config.resolve.alias,
 		'@': paths.src,
 	}
 
+	// add css module
 	config.module.rules.push(buildCssLoader(true))
 
+	// create new loaders, without svg
 	const rules = config.module.rules.map((rule: RuleSetRule) => {
 		if (/svg/.test(rule.test as string)) {
 			return {
@@ -29,8 +32,8 @@ export default ({ config }: { config: Configuration }) => {
 		return rule
 	})
 
+	// add svg loader
 	rules.push(buildSvgLoader())
-
 	config.module.rules = rules
 
 	return config
