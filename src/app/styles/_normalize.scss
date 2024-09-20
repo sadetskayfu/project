@@ -139,3 +139,10 @@ svg * {
 		scroll-behavior: auto !important;
 	}
 }
+
+/**
+    Удаляем базовую анимацию клика на мобильных устройствах
+   */
+*:focus, *:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }

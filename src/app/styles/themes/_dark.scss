@@ -1,6 +1,7 @@
 .app.dark {
-	--theme-color-light: rgb(0, 0, 0);
+	--theme-color-light: rgba(0, 0, 0, 0.2);
 	--theme-color-dark: rgb(255, 255, 255);
 	--theme-color-light-alt: rgb(62, 62, 73);
 	--theme-color-dark-alt: rgb(225, 225, 235);
+	--theme-active-color: rgba(0, 0, 0, 0.4);
 }

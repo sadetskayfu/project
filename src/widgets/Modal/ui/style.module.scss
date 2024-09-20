@@ -1,0 +1,20 @@
+.modal {
+    position: relative;
+    width: 440px;
+    padding: 50px;
+    background-color: var(--theme-color-light-alt);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    color: var(--theme-color-dark-alt);
+    transform: translateY(100%);
+    transition: transform var(--transition-duration-middle);
+
+    &.active {
+        transform: translateY(0);
+    }
+}
+
+.close-button {
+    top: 10px;
+    right: 10px;
+}

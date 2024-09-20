@@ -1,0 +1,96 @@
+@import '@/app/styles/media', '@/app/styles/mixins';
+
+.button {
+	--box-shadow-gap: 5px;
+
+	position: absolute;
+	aspect-ratio: 1;
+	border-radius: var(--border-radius-small);
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	background-color: transparent;
+	color: var(--theme-color-dark-alt);
+	box-shadow: var(--box-shadow-small);
+
+	&::after,
+	&::before {
+		@include abs-center;
+		content: '';
+		height: 1px;
+		width: 50%;
+		background-color: currentColor;
+	}
+
+	@include hover {
+		background-color: var(--theme-color-light);
+	}
+
+	&:active {
+		background-color: var(--theme-active-color);
+	}
+}
+
+// Theme
+.button {
+	&.large {
+		width: 40px;
+		--box-shadow-gap: 7px;
+	}
+
+	&.small {
+		width: 30px;
+	}
+
+	&.cross {
+		&::after {
+			rotate: 45deg;
+		}
+		&::before {
+			rotate: 135deg;
+		}
+	}
+
+	&.burger {
+		&::after {
+			box-shadow: 0 var(--box-shadow-gap);
+		}
+		&::before {
+			box-shadow: 0 calc(var(--box-shadow-gap) * -1);
+		}
+	}
+
+	&.burger-cross {
+		&::after,
+		&::before {
+			transition:
+				rotate 0.3s,
+				box-shadow 0.3s;
+			transition-property: box-shadow, rotate;
+			transition-delay: 0.3s, 0s;
+		}
+
+		&::after {
+			box-shadow: 0 var(--box-shadow-gap);
+		}
+		&::before {
+			box-shadow: 0 calc(var(--box-shadow-gap) * -1);
+		}
+
+		&.active {
+			&::after,
+			&::before {
+				transition-property: box-shadow, rotate;
+				transition-delay: 0s, 0.3s;
+			}
+			&::after {
+				box-shadow: 0 0;
+				rotate: 45deg;
+			}
+			&::before {
+				box-shadow: 0 0;
+				rotate: 135deg;
+			}
+		}
+	}
+}
