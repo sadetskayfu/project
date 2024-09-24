@@ -14,6 +14,7 @@ const MainPage = () => {
 
 	const { t } = useTranslation()
 	console.log('MainPage')
+
 	return (
 		<div className="main-page">
 			<h2 className="main-page__title">{t('Home Page')}</h2>
