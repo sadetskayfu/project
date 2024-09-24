@@ -22,13 +22,15 @@ export const LoginForm = () => {
 	)
 
 	return (
-		<div className={styles['form']}>
+		<form className={styles['form']}>
 			<Input
 				value={userName}
 				onChange={onChangeUserName}
 				label="Username"
 				id="username"
 				type="text"
+                placeholder='hello'
+                labelTheme='label-none'
 			/>
 			<Input
 				value={password}
@@ -38,6 +40,6 @@ export const LoginForm = () => {
 				type="password"
 			/>
 			<Button type="submit">Login</Button>
-		</div>
+		</form>
 	)
 }

@@ -16,6 +16,11 @@
 	transition-duration: 0.2s;
     height: var(--button-height);
 
+	&::placeholder {
+		opacity: 0.5;
+		color: inherit;
+	}
+
 	&:focus {
 		box-shadow: var(--box-shadow);
 	}
@@ -45,6 +50,9 @@
     }
 
 	&.label-placeholder {
+		.input::placeholder {
+			opacity: 0;
+		}
 		.label {
 			position: absolute;
 			top: 50%;

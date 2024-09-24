@@ -13,7 +13,7 @@ export const Header = () => {
 					<div className="header__actions">
 						<ThemeSwitchButton/>
 						<TranslateSwitchButton/>
-						<Button theme="transparent">Login</Button>
+						<Button theme="primary">Login</Button>
 					</div>
 				</div>
 			</div>
