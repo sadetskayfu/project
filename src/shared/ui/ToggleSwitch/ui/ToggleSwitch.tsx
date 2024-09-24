@@ -24,7 +24,7 @@ interface ToggleSwitchProps {
 	additionalClasses?: string[]
 	theme?: ToggleSwitchTheme
 	size?: ToggleSwitchSize
-	emulatorScale?: ToggleSwitchActiveEmulatorScale
+	emulatorScale?: ToggleSwitchActiveEmulatorScale | undefined
 	label?: string
 	name?: string
 }

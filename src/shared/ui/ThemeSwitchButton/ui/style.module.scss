@@ -1,15 +1,5 @@
 @import '@/app/styles/media';
 
-@keyframes icon-appearance {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
-
 .button {
     --width-button: 65px;
 	--height-button: 30px;
@@ -21,13 +11,13 @@
 	border-radius: var(--border-radius-big);
 	border: none;
 	cursor: pointer;
-	background-color: var(--color-light-alt);
-	color: var(--color-dark-alt);
-	box-shadow: var(--box-shadow-inset);
+	background-color: transparent;
+	color: var(--color-blue);
+	box-shadow: var(--box-shadow-small);
 	transition-duration: var(--transition-duration);
 
     @include hover {
-        background-color: var(--color-light);
+        background-color: var(--active-color-dark);
     }
 
 	&.active {
@@ -42,11 +32,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: var(--switch-height);
+	height: var(--button-height);
 	aspect-ratio: 1;
 	transform: translateX(calc((var(--width-button) / 2 -  var(--height-button) / 2) * -1));
 	color: var(--color-light);
-	background-color: var(--color-light);
+	background-color: var(--color-dark);
 	border-radius: 50%;
 	transition-duration: inherit;
 	color: var(--color-gold);
@@ -57,5 +47,15 @@
 		animation-duration: 1s;
 		height: 20px;
 		width: 20px;
+	}
+}
+
+@keyframes icon-appearance {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
 	}
 }

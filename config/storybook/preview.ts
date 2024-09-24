@@ -4,6 +4,12 @@ import { RouterDecorator } from '@/shared/storybook/decorators'
 
 const preview: Preview = {
 	parameters: {
+		backgrounds: {
+			values: [
+				{name: 'Dark', value: '#202029'},
+				{name: 'Light', value: '#F6F6F8'}
+			]
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

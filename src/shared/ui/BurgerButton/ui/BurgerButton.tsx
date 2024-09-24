@@ -1,36 +1,39 @@
-import { ButtonHTMLAttributes, FC, useState } from 'react'
+import { FC, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
 import * as styles from './style.module.scss'
 
 type BurgerButtonTheme = 'burger' | 'cross' | 'burger-cross'
 type BurgerButtonSize = 'small' | 'large'
+type BurgerButtonColorTheme = 'primary' | 'transparent'
 
-interface BurgerButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface BurgerButtonProps {
 	additionalClasses?: string[]
-	clickHandler?: () => void
+	onClick?: () => void
 	label: string
 	theme?: BurgerButtonTheme
 	size?: BurgerButtonSize
+	colorTheme?: BurgerButtonColorTheme
 }
 
 export const BurgerButton: FC<BurgerButtonProps> = (props) => {
 	const {
-		clickHandler,
+		onClick,
 		additionalClasses = [],
 		label,
 		theme = 'burger',
 		size = 'small',
+		colorTheme = 'primary'
 	} = props
 
 	const [isCross, setIsCross] = useState<boolean>(false)
 
-	const onClick = () => {
+	const onClickHandler = () => {
 		if (theme === 'burger-cross') {
 			setIsCross((prev) => !prev)
 		}
-		if (clickHandler) {
-			clickHandler()
+		if (onClick) {
+			onClick()
 		}
 	}
 
@@ -39,12 +42,12 @@ export const BurgerButton: FC<BurgerButtonProps> = (props) => {
 	}
 	const additionalCls: string[] = [
 		...additionalClasses,
-		...getModuleClassNames([theme, size], styles),
+		...getModuleClassNames([theme, size, colorTheme], styles),
 	]
 	console.log('BurgerButton')
 	return (
 		<button
-			onClick={onClick}
+			onClick={onClickHandler}
 			className={classNames(styles['button'], additionalCls, mods)}
 			type="button"
 		>

@@ -1,4 +1,4 @@
-import { NavLink, NavLinkTheme } from '@/shared/ui/NavLink'
+import { NavLink } from '@/shared/ui/NavLink'
 import { RoutePaths } from '@/app/providers/router'
 import './style.scss'
 

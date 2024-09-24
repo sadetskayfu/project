@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect } from 'react'
+import { FC, memo, ReactNode, useEffect, useState } from 'react'
 import { BurgerButton } from '@/shared/ui/BurgerButton'
 import { Overlay } from '@/shared/ui/Overlay'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -9,15 +9,11 @@ interface ModalProps {
 	additionalClasses?: string[]
 	children: ReactNode
 	isVisible: boolean
-	setIsVisible: (visible: boolean) => void
+	closeHandler: () => void
 }
 
-export const Modal: FC<ModalProps> = (props) => {
-	const { children, isVisible, setIsVisible, additionalClasses = [] } = props
-
-	const closeHandler = () => {
-		setIsVisible(false)
-	}
+export const Modal = memo(function Modal(props: ModalProps) {
+	const { children, isVisible, closeHandler, additionalClasses = [] } = props
 
 	// e: KeyboardEvent
 	const closeModalOnKeyDown = (e: any) => {
@@ -31,7 +27,7 @@ export const Modal: FC<ModalProps> = (props) => {
 	}
 
 	useEffect(() => {
-			//console.log('effect')
+		//console.log('effect')
 		if (isVisible) {
 			window.addEventListener('keydown', closeModalOnKeyDown)
 			//console.log('add')
@@ -45,7 +41,9 @@ export const Modal: FC<ModalProps> = (props) => {
 	const mods: Record<string, boolean> = {
 		[styles['active']]: isVisible,
 	}
+
 	console.log('Modal')
+
 	return (
 		<Portal>
 			<Overlay isVisible={isVisible} closeHandler={closeHandler}>
@@ -60,7 +58,7 @@ export const Modal: FC<ModalProps> = (props) => {
 				>
 					{children}
 					<BurgerButton
-						clickHandler={closeHandler}
+						onClick={closeHandler}
 						theme="cross"
 						label="close modal window"
 						additionalClasses={[styles['close-button']]}
@@ -69,4 +67,4 @@ export const Modal: FC<ModalProps> = (props) => {
 			</Overlay>
 		</Portal>
 	)
-}
+})

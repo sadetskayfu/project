@@ -4,12 +4,15 @@ import ThemeProvider from '@/app/providers/theme/ui/ThemeProvider'
 import App from '@/app/App'
 import '@/app/providers/i18n/i18n'
 import { ErrorBoundary } from './app/providers/ErrorBoundary'
+import { StoreProvider } from './app/providers/store'
 
-const root = createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById('root')!)
 root.render(
-	<BrowserRouter>
+	<StoreProvider>
+		<BrowserRouter>
 			<ThemeProvider>
 				<App />
 			</ThemeProvider>
-	</BrowserRouter>
+		</BrowserRouter>
+	</StoreProvider>
 )

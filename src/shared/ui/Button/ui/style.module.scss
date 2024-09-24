@@ -1,0 +1,49 @@
+@import '@/app/styles/media', '@/app/styles/mixins';
+
+.button {
+    position: relative;
+    height: var(--button-height);
+    padding-inline: 20px;
+    cursor: pointer;
+    text-wrap: nowrap;
+    border: none;
+    border-radius: var(--border-radius-small);
+    box-shadow: var(--box-shadow-small);
+    transition-duration: var(--transition-duration);
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+// Theme
+.button {
+
+    &.primary {
+        color: var(--theme-color-dark);
+        background: linear-gradient(45deg, var(--color-blue) 0%, var(--theme-color-light) 51%, var(--color-blue) 100%);
+        background-size: 200% auto;
+       
+        @include hover {
+            background-position: right center;
+        }
+    }
+
+    &.secondary {
+        color: var(--theme-color-blue);
+        background-color: var(--theme-color-light);
+
+        @include hover {
+            background-color: var(--theme-color-light-alt);
+        }
+    }
+
+    &.transparent {
+        background: transparent;
+        color: var(--theme-color-blue);
+        
+        @include hover {
+            box-shadow: var(--box-shadow);
+        }
+    }
+}
+

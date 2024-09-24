@@ -1,0 +1,87 @@
+@import '@/app/styles/mixins';
+
+.field {
+	--textInlinePadding: 20px;
+	position: relative;
+	color: var(--theme-color-blue);
+}
+
+.input {
+	border-radius: var(--border-radius-small);
+	border: none;
+	outline: none;
+	padding-inline: var(--textInlinePadding);
+	color: inherit;
+	box-shadow: var(--box-shadow-small);
+	transition-duration: 0.2s;
+    height: var(--button-height);
+
+	&:focus {
+		box-shadow: var(--box-shadow);
+	}
+}
+
+// Theme
+.field {
+    &.primary {
+        .input {
+            background-color: var(--theme-color-light-alt);
+
+            &:hover,
+            &:focus {
+                background-color: var(--theme-color-light);
+            }
+        }
+    }
+
+    &.transparent {
+        .input {
+            background-color: transparent;
+            
+            &:hover {
+                box-shadow: var(--box-shadow);
+            }
+        }
+    }
+
+	&.label-placeholder {
+		.label {
+			position: absolute;
+			top: 50%;
+			translate: 0 -50%;
+			left: var(--textInlinePadding);
+			opacity: 0.5;
+			transition-duration: 0.2s;
+			cursor: text;
+		}
+
+		&.active,
+		&:focus-within {
+			.label {
+				translate: 0;
+				top: -1.7em;
+				font-size: 0.7em;
+				opacity: 0.8;
+				left: 7px;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&.label-none {
+		.label {
+            @include visually-hidden;
+        }
+	}
+
+	&.label-static {
+		.label {
+			position: absolute;
+			top: -1.7em;
+			font-size: 0.7em;
+			opacity: 0.8;
+			left: 7px;
+			pointer-events: none;
+		}
+	}
+}

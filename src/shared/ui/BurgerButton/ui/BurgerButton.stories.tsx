@@ -6,9 +6,11 @@ import { Theme } from '@/app/providers/theme'
 const meta = {
 	title: 'shared/BurgerButton',
 	component: BurgerButton,
-	tags: ['autodocs'],
     args: {
         label: 'Open aside menu',
+        theme: 'burger',
+        colorTheme: 'primary',
+        size: 'small'
     },
 } satisfies Meta<typeof BurgerButton>
 
@@ -16,15 +18,15 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Burger: Story = {
+export const Primary: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
-export const BurgerDark: Story = {
+export const PrimaryDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)]
 }
 
-export const BurgerLarge: Story = {
+export const Large: Story = {
     args: {
         size:'large'
     },
@@ -45,3 +47,10 @@ export const BurgerCross: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)]
 }
 
+export const Transparent: Story = {
+    args: {
+        colorTheme: 'transparent',
+        theme: 'burger-cross'
+    },
+    decorators: [ThemeDecorator(Theme.LIGHT)]
+}

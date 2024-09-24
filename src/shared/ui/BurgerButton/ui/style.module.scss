@@ -9,8 +9,7 @@
 	border: none;
 	padding: 0;
 	cursor: pointer;
-	background-color: transparent;
-	color: var(--theme-color-dark-alt);
+	color: var(--theme-color-blue);
 	box-shadow: var(--box-shadow-small);
 
 	&::after,
@@ -22,17 +21,30 @@
 		background-color: currentColor;
 	}
 
-	@include hover {
-		background-color: var(--theme-color-light);
-	}
-
 	&:active {
-		background-color: var(--theme-active-color);
+		transform: scale(0.95);
 	}
 }
 
 // Theme
 .button {
+
+	&.primary {
+		background-color: var(--theme-color-light);
+
+		@include hover {
+			background-color: var(--theme-color-light-alt)
+		}
+	}
+
+	&.transparent {
+		background-color: transparent;
+
+		@include hover {
+			box-shadow: var(--box-shadow);
+		}
+	}
+
 	&.large {
 		width: 40px;
 		--box-shadow-gap: 7px;

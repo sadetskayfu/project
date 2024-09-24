@@ -1,6 +1,7 @@
 import { TranslateSwitchButton } from '@/shared/ui/TranslateSwitchButton'
 import './style.scss'
 import { ThemeSwitchButton } from '@/shared/ui/ThemeSwitchButton'
+import { Button } from '@/shared/ui/Button'
 
 export const Header = () => {
 
@@ -12,6 +13,7 @@ export const Header = () => {
 					<div className="header__actions">
 						<ThemeSwitchButton/>
 						<TranslateSwitchButton/>
+						<Button theme="transparent">Login</Button>
 					</div>
 				</div>
 			</div>

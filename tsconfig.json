@@ -6,13 +6,22 @@
 		"target": "es5",
 		"jsx": "react-jsx",
 		"allowJs": true,
-		"moduleResolution": "node",
 		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"],
 		},
+
+		 /* Bundler mode */
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"moduleDetection": "force",
+
+		/* Linting */
+		//"strict": true,
+		//"noUnusedLocals": true,
+		//"noUnusedParameters": true,
+		//"noFallthroughCasesInSwitch": true
 	},
 
 	"ts-node": {
@@ -20,4 +29,5 @@
 			"module": "CommonJS"
 		}
 	},
+	
 }

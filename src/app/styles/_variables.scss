@@ -6,24 +6,22 @@
 
 	--font-family: 'Space Grotesk', 'sans-serif';
 
-	--color-light: rgb(255, 255, 255);
-	--color-dark: rgb(0, 0, 0);
-	--color-light-alt: rgb(225, 225, 235);
-	--color-dark-alt: rgb(62, 62, 73);
-	--color-gold: rgb(243, 192, 25);
-	--color-blue: rgb(7, 11, 255);
-	--active-color-light: rgb(255, 255, 255, 0.4);
-	--active-color-dark: rgba(0, 0, 0, 0.4);
+	--color-light: rgb(246, 246, 248);
+	--color-light-alt: rgb(255, 255, 255);
+	--color-dark: rgb(32, 32, 41);
+	--color-dark-alt: rgb(27, 27, 29);
+	--color-gold: rgb(235, 210, 128);
+	--color-blue: rgb(150, 151, 240);
 
 	--box-shadow-inset: 0 0 3px currentColor inset;
 	--box-shadow: 0 0 5px 1px currentColor;
-	--box-shadow-small: 0 0 1px currentColor;
+	--box-shadow-small: 0 0 2px currentColor;
 
 	--border-radius-big: 30px;
 	--border-radius: 15px;
 	--border-radius-small: 7px;
 
-	--switch-height: 36px;
+	--button-height: 50px;
 
 	--z-index-header: 1000;
 	--z-index-modal: 1500;

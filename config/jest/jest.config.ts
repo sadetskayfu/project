@@ -7,6 +7,9 @@ const config: Config = {
 	transform: {
 		'^.+.tsx?$': ['ts-jest', {}], // ts => js
 	},
+	globals: {
+		__IS_DEV__: true,
+	},
 	rootDir: '../../',
 	moduleDirectories: ['node_modules'],
 	modulePaths: ['<rootDir>src/'], // for absolute import

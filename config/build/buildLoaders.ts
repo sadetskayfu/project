@@ -21,17 +21,17 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
 		},
 	}
 
-	const babelLoader = {
-		test: /\.(jsx?|tsx?)$/,
-		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/preset-env'],
-				plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
-			},
-		},
-	}
+	// const babelLoader = {
+	// 	test: /\.(jsx?|tsx?)$/,
+	// 	exclude: /node_modules/,
+	// 	use: {
+	// 		loader: 'babel-loader',
+	// 		options: {
+	// 			presets: ['@babel/preset-env'],
+	// 			plugins: [isDev && 'react-refresh/babel'].filter(Boolean),
+	// 		},
+	// 	},
+	// }
 
 	return [assetLoader, svgLoader, cssLoader, typeScriptLoader]
 }
