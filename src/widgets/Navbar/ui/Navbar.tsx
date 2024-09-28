@@ -1,5 +1,5 @@
 import { NavLink } from '@/shared/ui/NavLink'
-import { RoutePaths } from '@/app/providers/router'
+import { ROUTES } from '@/shared/constans/routes'
 import './style.scss'
 
 export const Navbar = () => {
@@ -9,10 +9,10 @@ export const Navbar = () => {
 				<nav className="navbar__menu">
 					<ul className="navbar__menu-list">
 						<li className="navbar__menu-item">
-							<NavLink to={RoutePaths.MAIN}>Home page</NavLink>
+							<NavLink to={ROUTES.MAIN}>Home page</NavLink>
 						</li>
 						<li className="navbar__menu-item">
-							<NavLink to={RoutePaths.ABOUT}>About page</NavLink>
+							<NavLink to={ROUTES.ABOUT}>About page</NavLink>
 						</li>
 					</ul>
 				</nav>

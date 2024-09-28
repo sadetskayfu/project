@@ -1,15 +1,18 @@
 import { configureStore, UnknownAction, ThunkAction, ReducersMapObject } from "@reduxjs/toolkit";
 import type { StateSchema } from "./StateSchema";
-import { authReducer } from "@/features/auth/ui/model/slice/authSlice";
+import { authReducer } from "@/features/auth";
+import { userReducer } from "@/entities/User";
+import { authApi } from "@/features/auth/ui/model/services/api/authApi";
 
 export const extraArgument = {
-    
+    authApi
 }
 
 export function setupStore(initialState?: StateSchema) {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
-        auth: authReducer
+        auth: authReducer,
+        user: userReducer
     }
 
     return configureStore<StateSchema>({

@@ -1,6 +1,12 @@
+export interface Error {
+	error?: string 
+	massage?: string | string[]
+	statusCode?: number
+}
+
 export interface AuthSchema {
-    username: string
+    email: string
     password: string
     isLoading: boolean
-    error?: string
+    error?: Error
 }

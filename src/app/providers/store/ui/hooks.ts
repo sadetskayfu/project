@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from "react-redux";
-import type { AppStore, AppDispatch, extraArgument } from './store';
+import type { AppDispatch, extraArgument } from './store';
 import type { StateSchema } from './StateSchema';
 
 export const createAppSelector = createSelector.withTypes<StateSchema>()

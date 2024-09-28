@@ -1,2 +1,6 @@
-export { SingInForm } from './ui/SingInForm/SingInForm'
+export { SignInForm } from './ui/SignInForm/SignInForm'
+export { authReducer } from './ui/model/slice/authSlice'
 export type { AuthSchema } from './ui/model/types/authSchema'
+export { authApi } from './ui/model/services/api/authApi'
+export { getSessionInfoThunk } from './ui/model/services/thunk/getSessionInfoThunk/getSessionInfoThunk'
+export { signOutThunk } from './ui/model/services/thunk/signOutThunk/signOutThunk'

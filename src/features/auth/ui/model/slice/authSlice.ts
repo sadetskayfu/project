@@ -1,40 +1,79 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { AuthSchema } from '../types/authSchema'
-import { loginByUsername } from '../services/loginByUsername'
+import type { AuthSchema, Error } from '../types/authSchema'
 
 const initialState: AuthSchema = {
-	username: '',
+	email: '',
 	password: '',
 	isLoading: false,
-	error: '',
+	error: null,
 }
 
 export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		setUsername: (state, actions: PayloadAction<string>) => {
-			state.username = actions.payload
+		// FORM
+		setEmail: (state, actions: PayloadAction<string>) => {
+			state.email = actions.payload
 		},
 		setPassword: (state, actions: PayloadAction<string>) => {
 			state.password = actions.payload
 		},
-	},
-
-	extraReducers: (builder) => {
-		builder.addCase(loginByUsername.pending, (state) => {
-			state.error = ''
+		// SIGN UP
+		signUpPending: (state) => {
+			state.error = null
 			state.isLoading = true
-		}),
-		builder.addCase(loginByUsername.fulfilled, (state) => {
-			state.error = ''
+		},
+		signUpSuccess: (state) => {
 			state.isLoading = false
-		}),
-		builder.addCase(loginByUsername.rejected, (state, action) => {
+			state.email = ''
+			state.password = ''
+		},
+		signUpFailed: (state, action: PayloadAction<Error>) => {
 			state.isLoading = false
-			state.error = action.payload as string
-		})
-	}
+			state.error = action.payload
+			state.password = ''
+		},
+		// SIGN IN
+		signInPending: (state) => {
+			state.error = null
+			state.isLoading = true
+		},
+		signInSuccess: (state) => {
+			state.isLoading = false
+			state.email = ''
+			state.password = ''
+		},
+		signInFailed: (state, action: PayloadAction<Error>) => {
+			state.isLoading = false
+			state.error = action.payload
+			state.password = ''
+		},
+		// SESSION
+		getSessionInfoPending: (state) => {
+			state.error = null
+			state.isLoading = true
+		},
+		getSessionInfoSuccess: (state) => {
+			state.isLoading = false
+		},
+		getSessionInfoFailed: (state, action: PayloadAction<Error>) => {
+			state.error = action.payload
+			state.isLoading = false
+		},
+		// SIGN OUT
+		signOutPending: (state) => {
+			state.isLoading = true
+			state.error = null
+		},
+		signOutSuccess: (state) => {
+			state.isLoading = false
+		},
+		signOutFailed: (state, action: PayloadAction<Error>) => {
+			state.isLoading = false
+			state.error = action.payload
+		},
+	},
 })
 
 export const { actions: authActions } = authSlice

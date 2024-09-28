@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode, useEffect, useState } from 'react'
+import { memo, ReactNode, useEffect } from 'react'
 import { BurgerButton } from '@/shared/ui/BurgerButton'
 import { Overlay } from '@/shared/ui/Overlay'
 import { classNames } from '@/shared/lib/classNames/classNames'

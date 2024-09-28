@@ -2,21 +2,21 @@ import { Input } from '@/shared/ui/Input'
 import { Button } from '@/shared/ui/Button'
 import { useCallback } from 'react'
 import { authActions } from '../model/slice/authSlice'
-import { getPassword, getUsername } from '../model/selectors/selectors'
+import { getPassword, getEmail } from '../model/selectors/selectors'
 import { useSelector } from 'react-redux'
-import { loginByUsername } from '../model/services/loginByUsername'
+import { signUpThunk } from '../model/services/thunk/signUpThunk/signUpThunk'
 import { useAppDispatch } from '@/app/providers/store'
 import * as styles from './style.module.scss'
 
-export const SingInForm = () => {
+export const SignInForm = () => {
 
     const dispatch = useAppDispatch()
-	const username = useSelector(getUsername)
+	const email = useSelector(getEmail)
 	const password = useSelector(getPassword)
 
-	const onChangeUserName = useCallback(
+	const onChangeEmail = useCallback(
 		(value: string) => {
-			dispatch(authActions.setUsername(value))
+			dispatch(authActions.setEmail(value))
 		},
 		[dispatch]
 	)
@@ -29,19 +29,19 @@ export const SingInForm = () => {
 	)
 
 	const onLogin = () => {
-		dispatch(loginByUsername({
-			password,
-			username
+		dispatch(signUpThunk({
+			email,
+			password
 		}))
 	}
 
 	return (
 		<form className={styles['form']}>
 			<Input
-				value={username}
-				onChange={onChangeUserName}
-				label="Username"
-				id="username"
+				value={email}
+				onChange={onChangeEmail}
+				label="Email"
+				id="email"
 				type="text"
                 placeholder='hello'
                 labelTheme='label-none'
