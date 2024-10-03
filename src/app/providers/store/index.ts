@@ -1,9 +1,5 @@
-export { StoreProvider } from './ui/StoreProvider'
-export { setupStore } from './ui/store'
-export {
-	useAppDispatch,
-	useAppSelector,
-	createAppAsyncThunk,
-	createAppSelector,
-} from './ui/hooks'
-export type { StateSchema } from './ui/StateSchema'
+export { StoreProvider } from './config/StoreProvider'
+export { setupStore, reducerManager } from './config/store'
+export type { StateSchema, StateSchemaKey } from './config/types'
+export type { AppThunk, AppDispatch, AppStore, extraArgument } from './config/store'
+

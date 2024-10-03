@@ -7,13 +7,25 @@
     align-items: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--transition-duration-middle), z-index 1s;
+    transition: opacity 0.6s, z-index 3s;
     z-index: var(--z-index-overlay-close);
+    animation-name: appearance;
+    animation-duration: 0.6s;
     
     &.active {
         opacity: 1;
         pointer-events: auto;
         z-index: var(--z-index-overlay-open);
-        transition: opacity var(--transition-duration-middle), z-index 0s;
+        transition: opacity 0.6s, z-index 0s;
+    }
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

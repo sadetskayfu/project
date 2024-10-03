@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib'
 import * as styles from './style.module.scss'
 
 interface OverlayProps {

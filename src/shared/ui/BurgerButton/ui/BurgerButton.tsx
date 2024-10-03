@@ -1,6 +1,5 @@
 import { FC, useState } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
+import { classNames, getModuleClassNames} from '@/shared/lib'
 import * as styles from './style.module.scss'
 
 type BurgerButtonTheme = 'burger' | 'cross' | 'burger-cross'

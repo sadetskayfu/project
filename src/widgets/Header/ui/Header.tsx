@@ -4,10 +4,9 @@ import './style.scss'
 import { ThemeSwitchButton } from '@/shared/ui/ThemeSwitchButton'
 import { Button } from '@/shared/ui/Button'
 import { Modal } from '@/widgets/Modal'
-import { SignInForm } from '@/features/auth'
-import { useAppDispatch } from '@/app/providers/store'
+import { useAppDispatch } from '@/shared/hooks/redux'
 import { useSelector } from 'react-redux'
-import { signOutThunk } from '@/features/auth'
+import { Auth, signOutThunk } from '@/features/auth'
 import { getUserEmail } from '@/entities/User'
 
 export const Header = () => {
@@ -28,7 +27,7 @@ export const Header = () => {
 	const signOut = () => {
 		dispatch(signOutThunk())
 	}
-
+	console.log('header')
 	return (
 		<header className="header">
 			<div className="container">
@@ -49,8 +48,8 @@ export const Header = () => {
 					</div>
 				</div>
 			</div>
-			<Modal isVisible={isVisibleModal} closeHandler={closeModal}>
-				<SignInForm />
+			<Modal isVisible={isVisibleModal} closeHandler={closeModal} lazy={true}>
+				<Auth />
 			</Modal>
 		</header>
 	)

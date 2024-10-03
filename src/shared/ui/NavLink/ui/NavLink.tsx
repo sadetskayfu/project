@@ -1,7 +1,6 @@
 import { Link, LinkProps } from 'react-router-dom'
 import { FC } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
+import { classNames, getModuleClassNames } from '@/shared/lib'
 import * as styles from './style.module.scss'
 
 export enum NavLinkTheme {

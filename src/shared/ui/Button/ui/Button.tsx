@@ -1,7 +1,6 @@
 import { ButtonHTMLAttributes, FC } from 'react'
+import { classNames, getModuleClassNames } from '@/shared/lib'
 import * as styles from './style.module.scss'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
 
 type ButtonTheme = 'primary' | 'secondary' | 'transparent'
 

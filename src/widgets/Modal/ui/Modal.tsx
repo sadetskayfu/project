@@ -1,7 +1,7 @@
-import { memo, ReactNode, useEffect } from 'react'
+import { memo, ReactNode, useEffect, useState } from 'react'
 import { BurgerButton } from '@/shared/ui/BurgerButton'
 import { Overlay } from '@/shared/ui/Overlay'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib'
 import { Portal } from '@/shared/ui/Portal'
 import * as styles from './style.module.scss'
 
@@ -10,11 +10,14 @@ interface ModalProps {
 	children: ReactNode
 	isVisible: boolean
 	closeHandler: () => void
+	lazy?: boolean
 }
 
 export const Modal = memo(function Modal(props: ModalProps) {
-	const { children, isVisible, closeHandler, additionalClasses = [] } = props
+	const { children, isVisible, closeHandler, additionalClasses = [], lazy = false } = props
 
+	const [isMounting, setIsMounting] = useState(false)
+	
 	// e: KeyboardEvent
 	const closeModalOnKeyDown = (e: any) => {
 		if (e.key === 'Escape') {
@@ -27,11 +30,18 @@ export const Modal = memo(function Modal(props: ModalProps) {
 	}
 
 	useEffect(() => {
+		if (lazy && isVisible) {
+			setIsMounting(true)
+		}
+	}, [isVisible])
+
+	useEffect(() => {
 		//console.log('effect')
 		if (isVisible) {
 			window.addEventListener('keydown', closeModalOnKeyDown)
 			//console.log('add')
 		}
+
 		return () => {
 			window.removeEventListener('keydown', closeModalOnKeyDown)
 			//console.log('remove')
@@ -40,6 +50,10 @@ export const Modal = memo(function Modal(props: ModalProps) {
 
 	const mods: Record<string, boolean> = {
 		[styles['active']]: isVisible,
+	}
+
+	if (lazy && !isMounting) {
+		return
 	}
 
 	console.log('Modal')

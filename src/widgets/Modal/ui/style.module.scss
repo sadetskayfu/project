@@ -1,13 +1,15 @@
 .modal {
     position: relative;
-    padding: 100px;
     background-color: var(--theme-color-light);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     color: var(--theme-color-blue);
     transform: translateY(100%);
     transition: transform var(--transition-duration-middle);
-
+    word-wrap: break-word;
+    animation-name: appearance;
+    animation-duration: var(--transition-duration-middle);
+    
     &.active {
         transform: translateY(0);
     }
@@ -16,4 +18,15 @@
 .close-button {
     top: 20px;
     right: 20px;
+    z-index: calc(var(--z-index-modal) + 200)
+}
+
+@keyframes appearance {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }

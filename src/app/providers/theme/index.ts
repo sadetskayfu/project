@@ -1,2 +1,2 @@
-export { useTheme } from './ui/useTheme'
-export { Theme } from './ui/ThemeContext'
+export { Theme, ThemeContext, LOCAL_STORAGE_THEME_KEY } from './ui/ThemeContext'
+export { ThemeProvider } from './ui/ThemeProvider'

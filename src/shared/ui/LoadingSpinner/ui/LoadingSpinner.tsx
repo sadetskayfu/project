@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib'
 import { FC } from 'react'
 import * as styles from  './style.module.scss'
 

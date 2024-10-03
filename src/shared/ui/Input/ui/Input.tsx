@@ -1,7 +1,6 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { classNames, getModuleClassNames } from '@/shared/lib'
 import * as styles from './style.module.scss'
-import { FC, InputHTMLAttributes, useState, ChangeEvent, memo } from 'react'
-import { getModuleClassNames } from '@/shared/lib/getModuleClassNames/getModuleClassNames'
+import { InputHTMLAttributes, ChangeEvent, memo } from 'react'
 
 type InputTheme = 'primary' | 'transparent'
 type LabelTheme = 'label-placeholder' | 'label-none' | 'label-static'
@@ -18,7 +17,7 @@ interface InputProps extends HTMLInputProps {
     onChange: (value: string) => void
 }
 
-export const Input: FC<InputProps> = memo((props) => {
+export const Input = memo((props: InputProps) => {
     console.log('input')
     const { 
             value, 

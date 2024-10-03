@@ -1,11 +1,11 @@
 import { Input } from '@/shared/ui/Input'
 import { Button } from '@/shared/ui/Button'
-import { useCallback } from 'react'
-import { authActions } from '../model/slice/authSlice'
-import { getPassword, getEmail } from '../model/selectors/selectors'
+import { useCallback, useEffect } from 'react'
+import { authActions } from '../../model/slice/authSlice'
+import { getPassword, getEmail } from '../../model/selectors/selectors'
 import { useSelector } from 'react-redux'
-import { signUpThunk } from '../model/services/thunk/signUpThunk/signUpThunk'
-import { useAppDispatch } from '@/app/providers/store'
+import { signInThunk } from '../../model/services/thunk/signInThunk/singInThunk'
+import { useAppDispatch } from '@/shared/hooks/redux'
 import * as styles from './style.module.scss'
 
 export const SignInForm = () => {
@@ -29,11 +29,13 @@ export const SignInForm = () => {
 	)
 
 	const onLogin = () => {
-		dispatch(signUpThunk({
+		dispatch(signInThunk({
 			email,
 			password
 		}))
 	}
+
+	console.log('sign-up')
 
 	return (
 		<form className={styles['form']}>
@@ -43,8 +45,7 @@ export const SignInForm = () => {
 				label="Email"
 				id="email"
 				type="text"
-                placeholder='hello'
-                labelTheme='label-none'
+				autoCapitalize='off'
 			/>
 			<Input
 				value={password}
@@ -52,8 +53,9 @@ export const SignInForm = () => {
 				label="Password"
 				id="password"
 				type="password"
+				autoCapitalize='off'
 			/>
-			<Button onClick={onLogin} type='button'>Login</Button>
+			<Button onClick={onLogin} type='button' additionalClasses={[styles['button']]}>Sign in</Button>
 		</form>
 	)
 }

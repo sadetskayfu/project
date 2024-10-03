@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { useTheme } from '@/app/providers/theme'
+import { classNames } from '@/shared/lib'
+import { useTheme } from '@/shared/hooks/useTheme'
 import { Theme } from '@/app/providers/theme'
 import Sun from './icons/sun.svg'
 import Moon from './icons/moon.svg'

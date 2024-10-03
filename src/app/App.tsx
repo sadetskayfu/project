@@ -3,7 +3,7 @@ import { AppRouter } from './providers/router'
 import { Header } from '@/widgets/Header'
 import { Navbar } from '@/widgets/Navbar'
 import './styles/styles.scss'
-import { useAppDispatch } from './providers/store'
+import { useAppDispatch } from '@/shared/hooks/redux'
 import { getSessionInfoThunk } from '@/features/auth'
 
 export default function App() {

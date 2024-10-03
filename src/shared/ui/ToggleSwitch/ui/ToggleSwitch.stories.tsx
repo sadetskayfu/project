@@ -3,7 +3,7 @@ import { ToggleSwitchSize, ToggleSwitchActiveEmulatorScale } from './ToggleSwitc
 import { fn } from '@storybook/test'
 
 import { ToggleSwitch } from './ToggleSwitch'
-import { ThemeDecorator } from '@/shared/storybook/decorators'
+import { ThemeDecorator } from '@/shared/storybook'
 import { Theme } from '@/app/providers/theme'
 
 const meta = {
